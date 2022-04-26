@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.comanch.valley_wind_awake.frontListFragment.ListFragment"
+        android:label="ListFragment">
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_listFragment_to_keyboardFragment"
+            app:destination="@id/keyboardFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_listFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_listFragment_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.comanch.valley_wind_awake.alarmFragment.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="itemId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_detailFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/keyboardFragment"
+        android:name="com.comanch.valley_wind_awake.keyboardFragment.KeyboardFragment"
+        android:label="keyboard_fragment"
+        tools:layout="@layout/keyboard_fragment" >
+        <action
+            android:id="@+id/action_keyboardFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_keyboardFragment_to_ringtonePickerFragment"
+            app:destination="@id/ringtonePickerFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="itemId"
+            app:argType="long" />
+        <argument
+            android:name="correspondent"
+            app:argType="com.comanch.valley_wind_awake.keyboardFragment.Correspondent" />
+        <argument
+            android:name="ringtoneUri"
+            app:argType="string" />
+        <argument
+            android:name="ringtoneTitle"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/ringtonePickerFragment"
+        android:name="com.comanch.valley_wind_awake.ringtonePickerFragment.RingtonePickerFragment"
+        android:label="RingtonePickerFragment" >
+        <action
+            android:id="@+id/action_ringtonePickerFragment_to_keyboardFragment"
+            app:destination="@id/keyboardFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_ringtonePickerFragment_to_ringtoneCustomPickerFragment"
+            app:destination="@id/ringtoneCustomPickerFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <argument android:name="itemId"
+            app:argType="long" />
+        <argument
+            android:name="ringtoneTitle"
+            app:argType="string" />
+        <argument
+            android:name="correspondent"
+            app:argType="com.comanch.valley_wind_awake.keyboardFragment.Correspondent" />
+        <action
+            android:id="@+id/action_ringtonePickerFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/ringtoneCustomPickerFragment"
+        android:name="com.comanch.valley_wind_awake.ringtonePickerCustomFragment.RingtoneCustomPickerFragment"
+        android:label="RingtoneCustomPickerFragment" >
+        <action
+            android:id="@+id/action_ringtoneCustomPickerFragment_to_ringtonePickerFragment"
+            app:destination="@id/ringtonePickerFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="itemId"
+            app:argType="long" />
+        <argument
+            android:name="ringtoneTitle"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.comanch.valley_wind_awake.settingsFragment.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_settingsFragment_to_ringtonePickerFragment"
+            app:destination="@id/ringtonePickerFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.comanch.valley_wind_awake.aboutFragment.AboutAppFragment"
+        android:label="AboutAppFragment" >
+        <action
+            android:id="@+id/action_aboutAppFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

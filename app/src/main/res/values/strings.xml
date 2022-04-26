@@ -1,0 +1,134 @@
+<resources>
+    <string name="app_name">Valley wind awake</string>
+
+    <string name="noAccessRights">no access rights</string>
+    <string name="noRingtoneSelected">no ringtone selected</string>
+
+    <string name="time_separator" translatable="false">:</string>
+    <string name="clear_calendar">Clear</string>
+
+    <!-- settings fragment -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_ringtone_choice">music volume and ringtone</string>
+    <string name="settings_key_sound">key sound</string>
+    <string name="settings_app_style">app style selection</string>
+    <string name="signal_duration">duration of the alarm sound</string>
+    <string name="pause_duration">the duration of the pause when the signal is delayed</string>
+    <string name="choose_signal_duration">select the duration of the signal</string>
+    <string name="choose_pause_duration">choose pause duration</string>
+    <string name="application_style">choose the application style</string>
+    <string name="vibration_signal">vibration signal</string>
+    <string name="back_button">back button</string>
+    <!-- detail fragment -->
+    <string name="ok_signalOff">OFF</string>
+    <string name="delay_signal">delay for</string>
+    <string name="delay">delay signal</string>
+    <string name="min">min.</string>
+    <!-- front_list fragment -->
+    <string name="done_delete_mode_off">DONE</string>
+    <string name="signal_is_delayed">signal is delayed</string>
+    <string name="the_nearest_signal">the nearest signal</string>
+    <!-- keyboard fragment -->
+    <string name="alarm">alarm clock from the list</string>
+    <string name="exit">exit the app to the home screen</string>
+    <string name="addAlarmClock">add alarm clock</string>
+    <string name="turnDeleteMode">turn delete alarm clocks mode</string>
+    <string name="turnOffDeleteMode">turn off delete alarm clocks mode</string>
+    <string name="set_date">date</string>
+    <string name="monday">Mo</string>
+    <string name="Tuesday">Tu</string>
+    <string name="Wednesday">We</string>
+    <string name="Thursday">Th</string>
+    <string name="Friday">Fr</string>
+    <string name="Saturday">Sa</string>
+    <string name="Sunday">Su</string>
+    <string name="mondayCD">monday</string>
+    <string name="TuesdayCD">Tuesday</string>
+    <string name="WednesdayCD">Wednesday</string>
+    <string name="ThursdayCD">Thursday</string>
+    <string name="FridayCD">Friday</string>
+    <string name="SaturdayCD">Saturday</string>
+    <string name="SundayCD">Sunday</string>
+    <string name="key_one" translatable="false">1</string>
+    <string name="key_two" translatable="false">2</string>
+    <string name="key_three" translatable="false">3</string>
+    <string name="key_four" translatable="false">4</string>
+    <string name="key_five" translatable="false">5</string>
+    <string name="key_six" translatable="false">6</string>
+    <string name="key_seven" translatable="false">7</string>
+    <string name="key_eight" translatable="false">8</string>
+    <string name="key_nine" translatable="false">9</string>
+    <string name="key_zero" translatable="false">0</string>
+    <string name="frontListToolbar">Heading. Back button on the left</string>
+    <string name="back">back</string>
+    <string name="save">Save</string>
+    <string name="open_calendar">open the calendar to select a date</string>
+    <string name="choose_ringtone">choose a ringtone</string>
+    <string name="first_hour">the first digit denoting the number of hours</string>
+    <string name="second_hour">the second digit denoting the number of hours</string>
+    <string name="first_minute">the first digit denoting the number of hours</string>
+    <string name="second_minute">the second digit denoting the number of minutes</string>
+    <string name="hours_keyboard">hours</string>
+    <string name="minutes">minutes</string>
+    <string name="time_displayed">time displayed</string>
+    <string name="activated">will be activated</string>
+    <string name="reset_character">reset the typed character</string>
+    <string name="incorrect_special_date">the time of the selected calendar date has expired</string>
+    <string name="reinstall">reinstall the app</string>
+    <string name="restart">restart the app</string>
+    <!-- ringtone_picker fragment -->
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="add_ringtone">add a new ringtone to the list</string>
+    <string name="delete_melody">delete the selected melody from the list</string>
+    <string name="choose_a_ringtone">choose a melody</string>
+    <string name="cannot_deleted">cannot be deleted default ringtone</string>
+    <!-- app menu -->
+    <string name="delete_all">delete all</string>
+    <string name="settings">settings</string>
+    <string name="about_app">about app</string>
+    <!-- toast, dialog -->
+    <string name="time_is_over">the set time has expired</string>
+    <string name="alarm_is_on">alarm is on</string>
+    <string name="alarm_is_off">alarm is off</string>
+    <string name="delete_all_items">delete all alarms?</string>
+    <string name="delete_ok">OK</string>
+    <string name="delete_cancel">Cancel</string>
+    <string name="days">days</string>
+    <string name="hours">hours</string>
+    <string name="restart_activity">the style will be changed after the restart</string>
+    <string name="restart_app">restart the app?</string>
+    <string name="am_pm">AM/PM</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+
+    <!-- toast, dialog -->
+    <string name="info_about_app">" A simple alarm clock with the ability to customize the interface and functionality. I wish you pleasant emotions from using this application."</string>
+    <string name="oss_license">open source licenses \n
+    (click to view)</string>
+    <string name="sound_license_1">
+  The sounds of pressing the touch keys, without changes and adaptations, are taken from here. \n
+        \n
+        https://material.io/design/sound/sound-resources \n
+        \n
+  under CC-BY 4.0 license \n
+        \n
+        https://creativecommons.org/licenses/by/4.0/legalcode
+</string>
+    <string name="my_license">
+  Copyright 2022 Comanch. \n
+        \n
+        Licensed under the Apache License, Version 2.0 (the "License"); \n
+        you may not use this file except in compliance with the License. \n
+        You may obtain a copy of the License at \n
+        \n
+        http://www.apache.org/licenses/LICENSE-2.0 \n
+        \n
+        Unless required by applicable law or agreed to in writing, software \n
+  distributed under the License is distributed on an "AS IS" BASIS, \n
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. \n
+       See the License for the specific language governing permissions and \n
+        limitations under the License. \n
+</string>
+
+</resources>

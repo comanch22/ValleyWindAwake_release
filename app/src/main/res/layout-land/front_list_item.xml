@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.comanch.valley_wind_awake.dataBase.TimeData" />
+
+        <variable
+            name="clickListener"
+            type="com.comanch.valley_wind_awake.frontListFragment.ItemListener" />
+
+        <variable
+            name="switchListener"
+            type="com.comanch.valley_wind_awake.frontListFragment.SwitchListener" />
+
+        <variable
+            name="deleteListener"
+            type="com.comanch.valley_wind_awake.frontListFragment.DeleteListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:soundEffectsEnabled="false"
+        android:background="@drawable/rectangle_for_list"
+        android:onClick="@{() -> clickListener.onClick(item)}">
+
+        <TextView
+            android:id="@+id/textViewNumberOne"
+            android:layout_marginStart="208dp"
+            android:gravity="center"
+            android:text="@string/key_one"
+            app:layout_constraintBottom_toTopOf="@id/barrier5"
+            app:layout_constraintEnd_toStartOf="@id/textViewNumberTwo"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="@id/guideline9"
+            app:layout_constraintTop_toBottomOf="@id/guideline6"
+            style="@style/front_list_item_numbers" />
+
+        <TextView
+            android:id="@+id/textViewNumberTwo"
+            android:gravity="center"
+            android:text="@string/key_two"
+            style="@style/front_list_item_numbers"
+            app:layout_constraintBottom_toTopOf="@id/barrier5"
+            app:layout_constraintEnd_toStartOf="@id/textViewColons"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/textViewNumberOne"
+            app:layout_constraintTop_toBottomOf="@id/guideline6" />
+
+        <TextView
+            android:id="@+id/textViewColons"
+            android:gravity="center"
+            android:text="@string/time_separator"
+            style="@style/front_list_item_numbers"
+            app:layout_constraintBottom_toTopOf="@id/barrier5"
+            app:layout_constraintEnd_toStartOf="@id/textViewNumberThree"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumberTwo"
+            app:layout_constraintTop_toBottomOf="@id/guideline6" />
+
+        <TextView
+            android:id="@+id/textViewNumberThree"
+            android:gravity="center"
+            android:text="@string/key_three"
+            style="@style/front_list_item_numbers"
+            app:layout_constraintBottom_toTopOf="@id/barrier5"
+            app:layout_constraintEnd_toStartOf="@+id/textViewNumberFour"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/textViewColons"
+            app:layout_constraintTop_toBottomOf="@id/guideline6" />
+
+        <TextView
+            android:id="@+id/textViewNumberFour"
+            android:layout_marginEnd="4dp"
+            android:gravity="center"
+            android:text="@string/key_four"
+            style="@style/front_list_item_numbers"
+            app:layout_constraintBottom_toTopOf="@id/barrier5"
+            app:layout_constraintEnd_toStartOf="@id/ampm"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumberThree"
+            app:layout_constraintTop_toBottomOf="@id/guideline6" />
+
+        <TextView
+            android:id="@+id/ampm"
+            app:layout_constraintBottom_toTopOf="@id/barrier5"
+            app:layout_constraintEnd_toStartOf="@id/guideline15"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumberFour"
+            app:layout_constraintTop_toBottomOf="@id/guideline6"
+            style="@style/keyboard_fragment_ampm_list_view_land" />
+
+        <TextView
+            android:id="@+id/isDelayed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:text="@string/signal_is_delayed"
+            android:visibility="invisible"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/selectedDate"
+            app:layout_constraintEnd_toStartOf="@id/guideline14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/guideline15"
+            app:layout_constraintTop_toBottomOf="@id/guideline6" />
+
+        <TextView
+            android:id="@+id/selectedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/colorSecondaryBlue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/barrier5"
+            app:layout_constraintEnd_toStartOf="@id/guideline14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/guideline15"
+            app:layout_constraintTop_toBottomOf="@id/isDelayed" />
+
+        <TextView
+            android:id="@+id/textViewMonday"
+            android:layout_marginStart="8dp"
+            android:text="@string/monday"
+            app:layout_constraintBottom_toTopOf="@id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/textViewTuesday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="@id/guideline9"
+            app:layout_constraintTop_toBottomOf="@id/barrier5"
+            app:layout_constraintVertical_weight="1"
+            style="@style/front_list_item_days" />
+
+        <TextView
+            android:id="@+id/textViewTuesday"
+            android:text="@string/Tuesday"
+            app:layout_constraintBottom_toTopOf="@id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/textViewWednesday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewMonday"
+            app:layout_constraintTop_toBottomOf="@id/barrier5"
+            style="@style/front_list_item_days"/>
+
+        <TextView
+            android:id="@+id/textViewWednesday"
+            android:text="@string/Wednesday"
+            app:layout_constraintBottom_toTopOf="@id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/textViewThursday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewTuesday"
+            app:layout_constraintTop_toBottomOf="@id/barrier5"
+            style="@style/front_list_item_days"/>
+
+        <TextView
+            android:id="@+id/textViewThursday"
+            android:text="@string/Thursday"
+            app:layout_constraintBottom_toTopOf="@id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/textViewFriday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewWednesday"
+            app:layout_constraintTop_toBottomOf="@id/barrier5"
+            style="@style/front_list_item_days"/>
+
+        <TextView
+            android:id="@+id/textViewFriday"
+            android:text="@string/Friday"
+            app:layout_constraintBottom_toTopOf="@id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/textViewSaturday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewThursday"
+            app:layout_constraintTop_toBottomOf="@id/barrier5"
+            style="@style/front_list_item_days"/>
+
+        <TextView
+            android:id="@+id/textViewSaturday"
+            android:text="@string/Saturday"
+            app:layout_constraintBottom_toTopOf="@id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/textViewSunday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewFriday"
+            app:layout_constraintTop_toBottomOf="@id/barrier5"
+            style="@style/front_list_item_days"/>
+
+        <TextView
+            android:id="@+id/textViewSunday"
+            android:layout_marginEnd="8dp"
+            android:text="@string/Sunday"
+            app:layout_constraintBottom_toTopOf="@id/guideline7"
+            app:layout_constraintEnd_toStartOf="@id/guideline14"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewSaturday"
+            app:layout_constraintTop_toBottomOf="@id/barrier5"
+            style="@style/front_list_item_days"/>
+
+
+        <TextView
+            android:id="@+id/switch_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:saveEnabled="false"
+            android:soundEffectsEnabled="false"
+            android:onClick="@{() -> switchListener.onSwitch(item)}"
+            app:layout_constraintBottom_toTopOf="@id/guideline7"
+            app:layout_constraintEnd_toStartOf="@id/guideline8"
+            app:layout_constraintStart_toEndOf="@id/guideline14"
+            app:layout_constraintTop_toBottomOf="@id/guideline6" />
+
+        <TextView
+            android:id="@+id/deleteItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:saveEnabled="false"
+            android:background="@drawable/ic_baseline_delete_forever_64"
+            android:visibility="gone"
+            android:soundEffectsEnabled="false"
+            android:onClick="@{() -> deleteListener.deleteItem(item)}"
+            app:layout_constraintBottom_toTopOf="@id/guideline7"
+            app:layout_constraintEnd_toStartOf="@id/guideline8"
+            app:layout_constraintStart_toEndOf="@id/guideline14"
+            app:layout_constraintTop_toBottomOf="@id/guideline6" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="8dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintGuide_end="8dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="8dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="8dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="124dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="322dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

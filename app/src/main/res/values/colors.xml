@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#D51B1B</color>
+
+    /////
+    <!-- theme blue -->
+    <color name="colorPrimaryDarkBlue">#15012E</color>
+    <color name="colorOnSecondaryBlue">#8AADBFDA</color>
+    <color name="colorPrimaryVariantBlue">#124EA8</color>
+    <color name="colorSecondaryBlue">#B3BCC9</color>
+    <color name="colorPrimaryBlue">#3F7EE0</color>
+    <color name="colorAccentBlue">#777A7C</color>
+    <color name="colorSecondaryVariantBlue">#124EA8</color>
+    <color name="colorOnBackgroundBlue">#DFE7F3</color>
+    <color name="colorControlNormalBlue">#6A95D8</color>
+    <color name="colorButtonNormalBlue">#2973E6</color>
+
+    <!-- theme green -->
+    <color name="colorPrimaryDarkGreen">#05231E</color>
+    <color name="colorOnSecondaryGreen">#8AADBFDA</color>
+    <color name="colorPrimaryVariantGreen">#104214</color>
+    <color name="colorSecondaryGreen">#B3BCC9</color>
+    <color name="colorPrimaryGreen">#348116</color>
+    <color name="colorAccentGreen">#777A7C</color>
+    <color name="colorSecondaryVariantGreen">#104214</color>
+    <color name="colorOnBackgroundGreen">#AFED97</color>
+    <color name="colorControlNormalGreen">#3B9A16</color>
+    <color name="colorButtonNormalGreen">#277808</color>
+
+    <!-- theme light -->
+    <color name="colorPrimaryDarkGray">#15012E</color>
+    <color name="colorOnSecondaryGray">#8AADBFDA</color>
+    <color name="colorPrimaryVariantGray">#2F3742</color>
+    <color name="colorSecondaryGray">#B3BCC9</color>
+    <color name="colorPrimaryGray">#4F5D77</color>
+    <color name="colorAccentGray">#777A7C</color>
+    <color name="colorSecondaryVariantGray">#2D3238</color>
+    <color name="colorOnBackgroundGray">#DFE7F3</color>
+    <color name="colorControlNormalGray">#A1BFED</color>
+    <color name="colorButtonNormalGray">#678BC3</color>
+
+    <color name="launchTextColor">#7FB5DF</color>
+    <color name="notificationTextColor">#2D3238</color>
+
+</resources>

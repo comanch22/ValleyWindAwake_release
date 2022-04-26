@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valley wind awake</string>
+    <string name="noRingtoneSelected">рингтон не выбран</string>
+    <string name="noAccessRights">нет прав доступа</string>
+    <string name="clear_calendar">очистить</string>
+    <string name="settings_title">Настройки</string>
+    <string name="settings_ringtone_choice">громкость музыки и мелодия</string>
+    <string name="settings_key_sound">звук клавиш</string>
+    <string name="settings_app_style">выбор стиля приложения</string>
+    <string name="ok_signalOff">Выкл.</string>
+    <string name="done_delete_mode_off">Сделано</string>
+    <string name="monday">Пн</string>
+    <string name="Tuesday">Вт</string>
+    <string name="Wednesday">Ср</string>
+    <string name="Thursday">Чт</string>
+    <string name="Friday">Пт</string>
+    <string name="Saturday">Сб</string>
+    <string name="Sunday">Вс</string>
+    <string name="mondayCD">понедельник</string>
+    <string name="TuesdayCD">вторник</string>
+    <string name="WednesdayCD">среда</string>
+    <string name="ThursdayCD">четверг</string>
+    <string name="FridayCD">пятница</string>
+    <string name="SaturdayCD">суббота</string>
+    <string name="SundayCD">воскресенье</string>
+    <string name="frontListToolbar">Заголовок. Слева кнопка назад</string>
+    <string name="save">сохранить</string>
+    <string name="cancel">закрыть</string>
+    <string name="ok">выбрать</string>
+    <string name="delete_all">удалить все</string>
+    <string name="settings">настройки</string>
+    <string name="about_app">о приложении</string>
+    <string name="set_date">дата</string>
+    <string name="time_is_over">устанавливаемый момент времени истек</string>
+    <string name="alarm_is_on">будильник включен</string>
+    <string name="alarm_is_off">будильник выключен</string>
+    <string name="delete_all_items">удалить все будильники?</string>
+    <string name="delete_ok">Да</string>
+    <string name="delete_cancel">Назад</string>
+    <string name="signal_duration">длительность сигнала будильника</string>
+    <string name="application_style">выберите стиль приложения</string>
+    <string name="choose_signal_duration">выберите длительность сигнала</string>
+    <string name="pause_duration">длительность паузы при отложенном сигнале</string>
+    <string name="choose_pause_duration">выберите продолжительность паузы</string>
+    <string name="delay_signal">отложить на</string>
+    <string name="min">мин.</string>
+    <string name="signal_is_delayed">сигнал отложен</string>
+    <string name="the_nearest_signal">ближайший сигнал</string>
+    <string name="days">сут.</string>
+    <string name="hours">час.</string>
+    <string name="restart_activity">стиль будет изменен после рестарта</string>
+    <string name="restart_app">перезапустить приложение?</string>
+    <string name="am_pm">AM/PM</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+    <string name="info_about_app">Простой будильник с возможностью настройки интерфейса и функциональности. Желаю приятных эмоций от использования этого приложения</string>
+    <string name="oss_license">лицензии продуктов с открытым исходным кодом. \n
+    (нажать для просмотра) </string>
+    <string name="sound_license_1">
+  Звуки нажатия сенсорных клавиш, без изменений и адаптации, взяты отсюда. \n
+        \n
+        https://material.io/design/sound/sound-resources \n
+        \n
+  находятся под лицензией CC-BY 4.0 \n
+        \n
+        https://creativecommons.org/licenses/by/4.0/legalcode
+</string>
+    <string name="my_license">
+  Copyright 2022 Comanch. \n
+        \n
+        Licensed under the Apache License, Version 2.0 (the "License"); \n
+        you may not use this file except in compliance with the License. \n
+        You may obtain a copy of the License at \n
+        \n
+        http://www.apache.org/licenses/LICENSE-2.0 \n
+        \n
+        Unless required by applicable law or agreed to in writing, software \n
+  distributed under the License is distributed on an "AS IS" BASIS, \n
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. \n
+       See the License for the specific language governing permissions and \n
+        limitations under the License. \n
+</string>
+    <string name="delay">отложить сигнал</string>
+    <string name="addAlarmClock">добавить будильник</string>
+    <string name="turnDeleteMode">включить режим удаления будильников</string>
+    <string name="turnOffDeleteMode">выключить режим удаления будильников</string>
+    <string name="exit">выйти из приложения в главный экран</string>
+    <string name="alarm">будильник из списка</string>
+    <string name="back">назад</string>
+    <string name="vibration_signal">вибросигнал</string>
+    <string name="back_button">вернуться назад</string>
+    <string name="open_calendar">открыть календарь для выбора даты</string>
+    <string name="choose_ringtone">выбрать мелодию звонка</string>
+    <string name="first_hour">первая цифра обозначающая количество часов</string>
+    <string name="second_hour">вторая цифра обозначающая количество часов</string>
+    <string name="second_minute">вторая цифра обозначающая количество минут</string>
+    <string name="first_minute">первая цифра обозначающая количество минут</string>
+    <string name="minutes">минут</string>
+    <string name="hours_keyboard">часов</string>
+    <string name="time_displayed">отображено время</string>
+    <string name="activated">будет активирована</string>
+    <string name="add_ringtone">добавить новую мелодию звонка в список</string>
+    <string name="delete_melody">удалить выбранную мелодию из списка</string>
+    <string name="reset_character">обнулить набранный символ</string>
+    <string name="cannot_deleted">нельзя удалить стандартный рингтон</string>
+    <string name="choose_a_ringtone">не выбрана мелодия</string>
+    <string name="incorrect_special_date">время выбранной календарной даты истекло</string>
+    <string name="reinstall">переустановите приложение</string>
+    <string name="restart">перезапустите приложение</string>
+
+</resources>

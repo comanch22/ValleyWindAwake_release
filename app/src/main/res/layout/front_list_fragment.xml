@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listViewModel"
+            type="com.comanch.valley_wind_awake.frontListFragment.ListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/front_list_layout">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:layout_constraintBottom_toTopOf="@id/list"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/front_list_toolbar">
+            <TextView
+                android:id="@+id/arrow_back"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:background="@drawable/ic_baseline_keyboard_arrow_left_36"
+                android:contentDescription="@string/exit"
+                android:layout_gravity="start"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    />
+                <TextView
+                    android:id="@+id/toolbar_nearestDate"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text=""
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            style="@style/front_list_recycle"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/guideline16"
+            app:layout_constraintEnd_toEndOf="@id/guideline19"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guideline20"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ButtonPlus"
+            style="@style/front_list_fab_button"
+            android:src="@drawable/ic_baseline_add_alarm_24"
+            app:fabSize="normal"
+            android:contentDescription="@string/addAlarmClock"
+            app:layout_constraintBottom_toTopOf="@id/guideline17"
+            app:layout_constraintEnd_toStartOf="@id/guideline19"
+            app:tint="?attr/colorSecondary" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ButtonDelete"
+            style="@style/front_list_fab_button"
+            android:contentDescription="@string/turnDeleteMode"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_baseline_delete_forever_8"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toTopOf="@id/guideline17"
+            app:layout_constraintStart_toEndOf="@id/guideline20"
+            app:tint="?attr/colorSecondary" />
+
+        <TextView
+            android:id="@+id/ButtonDone"
+            style="@style/front_list_button_done"
+            android:text="@string/done_delete_mode_off"
+            android:contentDescription="@string/turnOffDeleteMode"
+            app:layout_constraintBottom_toTopOf="@id/guideline17"
+            app:layout_constraintEnd_toStartOf="@id/ButtonPlus"
+            app:layout_constraintStart_toEndOf="@id/ButtonDelete"
+            app:layout_constraintTop_toBottomOf="@id/guideline16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            style="@style/front_list_guideline_hor"
+            app:layout_constraintGuide_begin="24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline16"
+            style="@style/front_list_guideline_hor"
+            app:layout_constraintGuide_end="64dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline17"
+            style="@style/front_list_guideline_hor"
+            app:layout_constraintGuide_end="24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline19"
+            style="@style/front_list_guideline_ver"
+            app:layout_constraintGuide_end="8dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline20"
+            style="@style/front_list_guideline_ver"
+            app:layout_constraintGuide_begin="8dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

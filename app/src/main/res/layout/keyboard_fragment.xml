@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".keyboardFragment.KeyboardFragment">
+
+    <data>
+
+        <variable
+            name="keyboardViewModel"
+            type="com.comanch.valley_wind_awake.keyboardFragment.KeyboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        style="@style/keyboard_fragment_layout">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/front_list_toolbar">
+
+        <TextView
+            android:id="@+id/arrow_back"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/ic_baseline_keyboard_arrow_left_36"
+            android:contentDescription="@string/back_button"
+            android:layout_gravity="start"
+            />
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textViewNumberOne"
+            style="@style/textView_keyboard_time"
+            android:layout_marginStart="20dp"
+            android:gravity="end"
+            android:onClick="@{() -> keyboardViewModel.fromTimerLayout(1)}"
+            android:text="@{keyboardViewModel.s1}"
+            app:layout_constraintBottom_toTopOf="@id/barrier2"
+            app:layout_constraintEnd_toStartOf="@+id/textViewNumberTwo"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+        <TextView
+            android:id="@+id/textViewNumberTwo"
+            style="@style/textView_keyboard_time"
+            android:gravity="center"
+            android:onClick="@{() -> keyboardViewModel.fromTimerLayout(2)}"
+            android:text="@{keyboardViewModel.s2}"
+            app:layout_constraintBottom_toTopOf="@id/barrier2"
+            app:layout_constraintEnd_toStartOf="@+id/textViewColons"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumberOne"
+            app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+        <TextView
+            android:id="@+id/textViewColons"
+            style="@style/textView_keyboard_time"
+            android:gravity="center"
+            android:text="@string/time_separator"
+            app:layout_constraintBottom_toTopOf="@id/barrier2"
+            app:layout_constraintEnd_toStartOf="@+id/textViewNumberThree"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumberTwo"
+            app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+        <TextView
+            android:id="@+id/textViewNumberThree"
+            style="@style/textView_keyboard_time"
+            android:gravity="center"
+            android:onClick="@{() -> keyboardViewModel.fromTimerLayout(3)}"
+            android:text="@{keyboardViewModel.s3}"
+            app:layout_constraintBottom_toTopOf="@id/barrier2"
+            app:layout_constraintEnd_toStartOf="@+id/textViewNumberFour"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewColons"
+            app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+        <TextView
+            android:id="@+id/textViewNumberFour"
+            style="@style/textView_keyboard_time"
+            android:gravity="start"
+            android:onClick="@{() -> keyboardViewModel.fromTimerLayout(4)}"
+            android:text="@{keyboardViewModel.s4}"
+            app:layout_constraintBottom_toTopOf="@id/barrier2"
+            app:layout_constraintEnd_toStartOf="@id/ampm"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumberThree"
+            app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+        <TextView
+            android:id="@+id/ampm"
+            app:layout_constraintBottom_toTopOf="@id/barrier2"
+            app:layout_constraintEnd_toStartOf="@id/guideline10"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumberFour"
+            app:layout_constraintTop_toBottomOf="@id/guideline4"
+            style="@style/keyboard_fragment_ampm_view" />
+
+        <TextView
+            android:id="@+id/selectedDate"
+            style="@style/ringtone_fragment_date_button"
+            android:layout_marginEnd="24dp"
+            android:gravity="start"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewNumberOne"
+            app:layout_constraintEnd_toStartOf="@id/guideline8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/guideline10" />
+
+        <TextView
+            android:id="@+id/calendarMonth"
+            android:background="@drawable/ic_baseline_calendar_month_24"
+            android:gravity="end"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@id/barrier2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintHorizontal_weight="1"
+            android:contentDescription="@string/open_calendar"
+            app:layout_constraintStart_toEndOf="@id/guideline8"
+            app:layout_constraintTop_toTopOf="@id/guideline4"
+            style="@style/ringtone_fragment_date_button"/>
+
+        <TextView
+            android:id="@+id/textViewMonday"
+            style="@style/textView_keyboard_days"
+            android:onClick="@{() -> keyboardViewModel.selectDayOfWeek(1)}"
+            android:text="@string/monday"
+            android:contentDescription="@string/mondayCD"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"
+            app:layout_constraintEnd_toStartOf="@+id/textViewTuesday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/barrier2"
+            app:layout_constraintVertical_weight="1" />
+
+        <TextView
+            android:id="@+id/textViewTuesday"
+            style="@style/textView_keyboard_days"
+            android:onClick="@{() -> keyboardViewModel.selectDayOfWeek(2)}"
+            android:text="@string/Tuesday"
+            android:contentDescription="@string/TuesdayCD"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"
+            app:layout_constraintEnd_toStartOf="@+id/textViewWednesday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewMonday"
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
+
+        <TextView
+            android:id="@+id/textViewWednesday"
+            style="@style/textView_keyboard_days"
+            android:onClick="@{() -> keyboardViewModel.selectDayOfWeek(3)}"
+            android:text="@string/Wednesday"
+            android:contentDescription="@string/WednesdayCD"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"
+            app:layout_constraintEnd_toStartOf="@+id/textViewThursday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewTuesday"
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
+
+        <TextView
+            android:id="@+id/textViewThursday"
+            style="@style/textView_keyboard_days"
+            android:onClick="@{() -> keyboardViewModel.selectDayOfWeek(4)}"
+            android:text="@string/Thursday"
+            android:contentDescription="@string/ThursdayCD"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"
+            app:layout_constraintEnd_toStartOf="@+id/textViewFriday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewWednesday"
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
+
+        <TextView
+            android:id="@+id/textViewFriday"
+            style="@style/textView_keyboard_days"
+            android:onClick="@{() -> keyboardViewModel.selectDayOfWeek(5)}"
+            android:text="@string/Friday"
+            android:contentDescription="@string/FridayCD"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"
+            app:layout_constraintEnd_toStartOf="@+id/textViewSaturday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewThursday"
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
+
+        <TextView
+            android:id="@+id/textViewSaturday"
+            style="@style/textView_keyboard_days"
+            android:onClick="@{() -> keyboardViewModel.selectDayOfWeek(6)}"
+            android:text="@string/Saturday"
+            android:contentDescription="@string/SaturdayCD"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"
+            app:layout_constraintEnd_toStartOf="@+id/textViewSunday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewFriday"
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
+
+        <TextView
+            android:id="@+id/textViewSunday"
+            style="@style/textView_keyboard_days"
+            android:onClick="@{() -> keyboardViewModel.selectDayOfWeek(7)}"
+            android:text="@string/Sunday"
+            android:contentDescription="@string/SundayCD"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"
+            app:layout_constraintEnd_toStartOf="@id/guideline3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewSaturday"
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
+
+        <TextView
+            android:id="@+id/trackTitle"
+            style="@style/textView_keyboard_select"
+            android:text=""
+            app:layout_constraintBottom_toTopOf="@id/barrier4"
+            app:layout_constraintEnd_toStartOf="@id/guideline8"
+            app:layout_constraintHeight="wrap_content"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="11"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/barrier3"
+            app:layout_constraintWidth="0dp" />
+
+        <TextView
+            android:id="@+id/textViewSelectTrack"
+            android:contentDescription="@string/choose_ringtone"
+            app:layout_constraintBottom_toTopOf="@id/barrier4"
+            app:layout_constraintEnd_toStartOf="@id/guideline3"
+            app:layout_constraintStart_toEndOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@id/barrier3"
+            style="@style/keyboard_select_track_button" />
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/keyBoardLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="?attr/colorPrimaryVariant"
+            app:columnCount="3"
+            app:layout_constraintBottom_toTopOf="@id/guideline12"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/barrier4"
+            app:orientation="horizontal"
+            app:rowCount="5">
+
+            <TextView
+                android:id="@+id/textViewKeyOne"
+                style="@style/textView_keyboard_numbers"
+                android:contentDescription="@string/key_one"
+                android:text="@string/key_one"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textViewKeyTwo"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/key_two"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textViewKeyThree"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/key_three"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textViewKeyFour"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/key_four"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textViewKeyFive"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/key_five"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textViewKeySix"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/key_six"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textViewKeySeven"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/key_seven"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textViewKeyEight"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/key_eight"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textViewKeyNine"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/key_nine"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <ImageView
+                android:id="@+id/imageViewKeyDelete"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/rectangle_keyboard_key"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="20dp"
+                android:contentDescription="@string/reset_character"
+                android:soundEffectsEnabled="false"
+                android:src="@drawable/ic_baseline_keyboard_backspace_8"
+                android:stateListAnimator="@animator/keyboard_scale_anim"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textViewKeyZero"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/key_zero"
+                android:textSize="20sp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/ampmKey"
+                style="@style/textView_keyboard_numbers"
+                android:text="@string/am_pm"
+                android:visibility="invisible"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <TextView
+            android:id="@+id/textViewKeyCancel"
+            style="@style/textView_keyboard_numbers_cancel"
+            android:clickable="true"
+            android:focusable="true"
+            android:soundEffectsEnabled="false"
+            android:gravity="start"
+            android:text="@string/back"
+            app:layout_constraintBottom_toTopOf="@id/guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/textViewKeySave"
+            app:layout_constraintStart_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/guideline12" />
+
+        <TextView
+            android:id="@+id/textViewKeySave"
+            style="@style/textView_keyboard_numbers_save"
+            android:clickable="true"
+            android:focusable="true"
+            android:soundEffectsEnabled="false"
+            android:gravity="end"
+            android:text="@string/save"
+            app:layout_constraintBottom_toTopOf="@id/guideline5"
+            app:layout_constraintEnd_toStartOf="@id/guideline3"
+            app:layout_constraintStart_toEndOf="@+id/textViewKeyCancel"
+            app:layout_constraintTop_toBottomOf="@id/guideline12" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="72dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="64dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="8dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="textViewNumberOne,textViewNumberTwo,textViewColons,textViewNumberThree,textViewNumberFour"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="barrier2,textViewMonday,textViewTuesday,textViewWednesday,textViewThursday,textViewFriday,textViewSaturday,textViewSunday"
+            tools:layout_editor_absoluteY="66dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="textViewSelectTrack"
+            tools:layout_editor_absoluteY="66dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="196dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="64dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

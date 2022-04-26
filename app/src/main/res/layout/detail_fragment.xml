@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="detailViewModel"
+            type="com.comanch.valley_wind_awake.alarmFragment.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle_detail"
+        android:contentDescription="@string/ok_signalOff"
+        tools:context="alarmFragment.DetailFragment">
+
+        <TextView
+            android:id="@+id/delay_signal"
+            style="@style/off_signal_button_style"
+            android:onClick="@{() -> detailViewModel.delaySignal()}"
+            android:text=""
+            android:contentDescription="@string/delay"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/guideline19"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextClock
+            android:id="@+id/textClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimaryVariant"
+            android:format24Hour="HH:mm"
+            android:gravity="center_horizontal"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toTopOf="@id/guideline18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline19" />
+
+        <TextView
+            android:id="@+id/item_ok"
+            style="@style/off_signal_button_style"
+            android:onClick="@{() -> detailViewModel.offSignal()}"
+            android:text="@string/ok_signalOff"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline18" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="400dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="250dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

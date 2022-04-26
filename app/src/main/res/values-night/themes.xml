@@ -1,0 +1,372 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Base" parent="Theme.AppCompat">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="Theme.Base.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Theme.Base.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Theme.Base.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="Theme.MyAlarmClock" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryBlue</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariantBlue</item>
+        <item name="colorAccent">@color/colorAccentBlue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryVariantBlue</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondaryBlue</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariantBlue</item>
+        <item name="colorOnSecondary">@color/colorOnSecondaryBlue</item>
+        <item name="colorOnBackground">@color/colorOnBackgroundBlue</item>
+        <item name="colorControlNormal">@color/colorControlNormalBlue</item>
+        <item name="colorButtonNormal">@color/colorButtonNormalBlue</item>
+        <item name="android:colorForeground">@color/colorOnSecondaryBlue</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimaryVariantBlue</item>
+        <!-- Customize your theme here. -->
+        <item name="colorSwitchThumbNormal">@color/colorAccentBlue</item>
+        <item name="colorControlActivated">@color/colorPrimaryBlue</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="alertDialogTheme">@style/ChooseItemDialogBlue</item>
+        <item name="popupTheme">@style/PopupThemeBlue</item>
+        <item name="android:dayOfWeekTextAppearance">@style/MyDayOfWeekTextAppearanceBlue</item>
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogThemeBlue</item>
+
+    </style>
+
+    <style name="PopupThemeBlue" parent="Theme.AppCompat">
+        <item name="android:colorBackground">@color/colorPrimaryBlue</item>
+        <item name="android:textColor">@color/colorSecondaryBlue</item>
+    </style>
+
+    <style name="ChooseItemDialogBlue" parent="Theme.MaterialComponents.Dialog.MinWidth">
+        <item name="colorAccent">@color/colorPrimaryBlue</item>
+        <item name="textColorAlertDialogListItem">@color/colorSecondaryBlue</item>
+        <item name="android:textColor">@color/colorSecondaryBlue</item>
+        <item name="android:background">@color/colorPrimaryVariantBlue</item>
+        <item name="colorSecondary">@color/colorSecondaryBlue</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogButtonBlue</item>
+    </style>
+
+    <style name="DialogButtonBlue" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryBlue</item>
+    </style>
+
+    <style name="MyDatePickerDialogThemeBlue" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyleBlue</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyleBlue</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/NegativeButtonStyleBlue</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/NeutralButtonStyleBlue</item>
+        <item name="android:colorControlActivated">@color/colorPrimaryBlue</item>
+        <item name="android:background">@color/colorPrimaryVariantBlue</item>
+        <item name="android:textColorSecondary">@color/colorSecondaryBlue</item>
+        <item name="android:textColorPrimary">@color/colorSecondaryBlue</item>
+    </style>
+
+
+    <style name="MyDatePickerStyleBlue" parent="android:Widget.Material.DatePicker">
+        <item name="android:headerBackground">@color/colorPrimaryVariantBlue</item>
+        <item name="android:keyBackground">@color/colorPrimaryVariantBlue</item>
+        <item name="android:backgroundTint">@color/colorPrimaryVariantBlue</item>
+    </style>
+
+    <style name="PositiveButtonStyleBlue" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryBlue</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantBlue</item>
+        <item name="background">@color/colorPrimaryVariantBlue</item>
+    </style>
+
+    <style name="NegativeButtonStyleBlue" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryBlue</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantBlue</item>
+        <item name="background">@color/colorPrimaryVariantBlue</item>
+    </style>
+
+    <style name="NeutralButtonStyleBlue" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryBlue</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantBlue</item>
+        <item name="background">@color/colorPrimaryVariantBlue</item>
+    </style>
+
+    <style name="MyDayOfWeekTextAppearanceBlue" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:color">@color/colorPrimaryBlue</item>
+    </style>
+
+    /////////////
+
+    <style name="Theme.MyAlarmClock2" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryGreen</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariantGreen</item>
+        <item name="colorAccent">@color/colorAccentGreen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryVariantGreen</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondaryGreen</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariantGreen</item>
+        <item name="colorOnSecondary">@color/colorOnSecondaryGreen</item>
+        <item name="colorOnBackground">@color/colorOnBackgroundGreen</item>
+        <item name="colorControlNormal">@color/colorControlNormalGreen</item>
+        <item name="colorButtonNormal">@color/colorButtonNormalGreen</item>
+        <item name="colorSwitchThumbNormal">@color/colorAccentGreen</item>
+        <item name="colorControlActivated">@color/colorPrimaryGreen</item>
+        <item name="android:colorForeground">@color/colorOnSecondaryGreen</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimaryVariantGreen</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowDisablePreview">true</item>
+        <item name="alertDialogTheme">@style/ChooseItemDialogGreen</item>
+        <item name="popupTheme">@style/PopupThemeGreen</item>
+        <item name="android:dayOfWeekTextAppearance">@style/MyDayOfWeekTextAppearanceGreen</item>
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogThemeGreen</item>
+
+    </style>
+
+    <style name="PopupThemeGreen" parent="Theme.AppCompat">
+        <item name="android:colorBackground">@color/colorPrimaryGreen</item>
+        <item name="android:textColor">@color/colorSecondaryGreen</item>
+    </style>
+
+    <style name="ChooseItemDialogGreen" parent="Theme.MaterialComponents.Dialog.MinWidth">
+        <item name="colorAccent">@color/colorPrimaryGreen</item>
+        <item name="textColorAlertDialogListItem">@color/colorSecondaryGreen</item>
+        <item name="android:textColor">@color/colorSecondaryGreen</item>
+        <item name="android:background">@color/colorPrimaryVariantGreen</item>
+        <item name="colorSecondary">@color/colorSecondaryGreen</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogButtonGreen</item>
+    </style>
+
+    <style name="DialogButtonGreen" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGreen</item>
+    </style>
+
+    <style name="MyDatePickerDialogThemeGreen" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyleGreen</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyleGreen</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/NegativeButtonStyleGreen</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/NeutralButtonStyleGreen</item>
+        <item name="android:colorControlActivated">@color/colorPrimaryGreen</item>
+        <item name="android:background">@color/colorPrimaryVariantGreen</item>
+        <item name="android:textColorSecondary">@color/colorSecondaryGreen</item>
+        <item name="android:textColorPrimary">@color/colorSecondaryGreen</item>
+    </style>
+
+
+    <style name="MyDatePickerStyleGreen" parent="android:Widget.Material.DatePicker">
+        <item name="android:headerBackground">@color/colorPrimaryVariantGreen</item>
+        <item name="android:keyBackground">@color/colorPrimaryVariantGreen</item>
+        <item name="android:backgroundTint">@color/colorPrimaryVariantGreen</item>
+    </style>
+
+    <style name="PositiveButtonStyleGreen" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGreen</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantGreen</item>
+        <item name="background">@color/colorPrimaryVariantGreen</item>
+    </style>
+
+    <style name="NegativeButtonStyleGreen" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGreen</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantGreen</item>
+        <item name="background">@color/colorPrimaryVariantGreen</item>
+    </style>
+
+    <style name="NeutralButtonStyleGreen" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGreen</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantGreen</item>
+        <item name="background">@color/colorPrimaryVariantGreen</item>
+    </style>
+
+    <style name="MyDayOfWeekTextAppearanceGreen" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:color">@color/colorPrimaryGreen</item>
+    </style>
+
+    /////////////////////////////////
+
+    <style name="Theme.MyAlarmClock3" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryGray</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariantGray</item>
+        <item name="colorAccent">@color/colorAccentGray</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryVariantGray</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondaryGray</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariantGray</item>
+        <item name="colorOnSecondary">@color/colorOnSecondaryGray</item>
+        <item name="colorOnBackground">@color/colorOnBackgroundGray</item>
+        <item name="colorControlNormal">@color/colorControlNormalGray</item>
+        <item name="colorButtonNormal">@color/colorButtonNormalGray</item>
+        <item name="colorSwitchThumbNormal">@color/colorAccentGray</item>
+        <item name="colorControlActivated">@color/colorSecondaryGray</item>
+        <item name="android:colorForeground">@color/colorOnSecondaryGray</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimaryVariantGray</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowDisablePreview">true</item>
+        <item name="alertDialogTheme">@style/ChooseItemDialogGray</item>
+        <item name="popupTheme">@style/PopupThemeGray</item>
+        <item name="android:dayOfWeekTextAppearance">@style/MyDayOfWeekTextAppearanceGray</item>
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogThemeGray</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionButtonOverflowGray</item>
+    </style>
+
+    <style name="ActionButtonOverflowGray" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="tint">@color/colorSecondaryGray</item>
+    </style>
+
+    <style name="PopupThemeGray" parent="Theme.AppCompat">
+        <item name="android:colorBackground">@color/colorPrimaryGray</item>
+        <item name="android:textColor">@color/colorSecondaryGray</item>
+    </style>
+
+    <style name="ChooseItemDialogGray" parent="Theme.MaterialComponents.Dialog.MinWidth">
+        <item name="colorAccent">@color/colorPrimaryGray</item>
+        <item name="textColorAlertDialogListItem">@color/colorSecondaryGray</item>
+        <item name="android:textColor">@color/colorSecondaryGray</item>
+        <item name="android:background">@color/colorPrimaryVariantGray</item>
+        <item name="colorSecondary">@color/colorSecondaryGray</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogButtonGray</item>
+    </style>
+
+    <style name="DialogButtonGray" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGray</item>
+    </style>
+
+    <style name="MyDatePickerDialogThemeGray" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyleGray</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyleGray</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/NegativeButtonStyleGray</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/NeutralButtonStyleGray</item>
+        <item name="android:colorControlActivated">@color/colorPrimaryGray</item>
+        <item name="android:background">@color/colorPrimaryVariantGray</item>
+        <item name="android:textColorSecondary">@color/colorSecondaryGray</item>
+        <item name="android:textColorPrimary">@color/colorSecondaryGray</item>
+    </style>
+
+    <style name="MyDatePickerStyleGray" parent="android:Widget.Material.DatePicker">
+        <item name="android:headerBackground">@color/colorPrimaryVariantGray</item>
+        <item name="android:keyBackground">@color/colorPrimaryVariantGray</item>
+        <item name="android:backgroundTint">@color/colorPrimaryVariantGray</item>
+    </style>
+
+    <style name="PositiveButtonStyleGray" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGray</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantGray</item>
+        <item name="background">@color/colorPrimaryVariantGray</item>
+    </style>
+
+    <style name="NegativeButtonStyleGray" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGray</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantGray</item>
+        <item name="background">@color/colorPrimaryVariantGray</item>
+    </style>
+
+    <style name="NeutralButtonStyleGray" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGray</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantGray</item>
+        <item name="background">@color/colorPrimaryVariantGray</item>
+    </style>
+
+    <style name="MyDayOfWeekTextAppearanceGray" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:color">@color/colorPrimaryGray</item>
+    </style>
+
+    ///////////////////////////
+
+    <style name="AlertDialogCustom" parent="@android:style/Theme.Dialog">
+        <item name="android:headerDividersEnabled">true</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/AlertDialogNeutralButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/AlertDialogNeutralButtonStyle</item>
+        <item name="android:backgroundTint">@color/colorPrimaryVariantBlue</item>
+        <item name="android:background">@color/colorPrimaryVariantBlue</item>
+    </style>
+
+    <style name="AlertDialogNeutralButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryBlue</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantBlue</item>
+        <item name="background">@color/colorPrimaryVariantBlue</item>
+        <item name="android:gravity">start</item>
+        <item name="layout_gravity">start</item>
+        <item name="android:foregroundGravity">left</item>
+        <item name="android:layout_gravity">start</item>
+    </style>
+
+    <style name="AlertDialogCustom2" parent="@android:style/Theme.Dialog">
+        <item name="android:headerDividersEnabled">true</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/AlertDialogNeutralButtonStyle2</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/AlertDialogNeutralButtonStyle2</item>
+        <item name="android:backgroundTint">@color/colorPrimaryVariantGreen</item>
+        <item name="android:background">@color/colorPrimaryVariantGreen</item>
+    </style>
+
+    <style name="AlertDialogNeutralButtonStyle2" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGreen</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantGreen</item>
+        <item name="background">@color/colorPrimaryVariantGreen</item>
+        <item name="android:gravity">start</item>
+        <item name="layout_gravity">start</item>
+        <item name="android:foregroundGravity">left</item>
+        <item name="android:layout_gravity">start</item>
+    </style>
+
+    <style name="AlertDialogCustom3" parent="@android:style/Theme.Dialog">
+        <item name="android:headerDividersEnabled">true</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/AlertDialogNeutralButtonStyle3</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/AlertDialogNeutralButtonStyle3</item>
+        <item name="android:backgroundTint">@color/colorPrimaryVariantGray</item>
+        <item name="android:background">@color/colorPrimaryVariantGray</item>
+    </style>
+
+    <style name="AlertDialogNeutralButtonStyle3" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryGray</item>
+        <item name="backgroundTint">@color/colorPrimaryVariantGray</item>
+        <item name="background">@color/colorPrimaryVariantGray</item>
+        <item name="android:gravity">start</item>
+        <item name="layout_gravity">start</item>
+        <item name="android:foregroundGravity">left</item>
+        <item name="android:layout_gravity">start</item>
+    </style>
+
+    <style name="Theme.MyAlarmClock.Launcher" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:scaleType">center</item>
+        <item name="android:drawable">@color/teal_200</item>
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+        <item name="android:windowDisablePreview">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="LaunchTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+    </style>
+
+    <style name="licensesTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+
+        <item name="colorPrimary">@color/black</item>
+        <item name="android:textColor">@color/launchTextColor</item>
+        <item name="android:homeAsUpIndicator">@drawable/license_activity_back_arrow</item>
+        <item name="titleTextColor">@color/launchTextColor</item>
+        <item name="android:colorForeground">@color/launchTextColor</item>
+        <item name="android:colorBackground">@color/black</item>
+    </style>
+
+</resources>
+

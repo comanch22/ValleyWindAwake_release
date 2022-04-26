@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valley wind awake</string>
+
+    <string name="noAccessRights">no access rights</string>
+    <string name="noRingtoneSelected">no ringtone selected</string>
+
+    <string name="time_separator" translatable="false">:</string>
+    <string name="clear_calendar">clear</string>
+
+    <!-- settings fragment -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_ringtone_choice">music volume and ringtone</string>
+    <string name="settings_key_sound">key sound</string>
+    <string name="settings_app_style">app style selection</string>
+    <!-- detail fragment -->
+    <string name="ok_signalOff">OFF</string>
+    <!-- front_list fragment -->
+    <string name="done_delete_mode_off">DONE</string>
+    <!-- keyboard fragment -->
+    <string name="set_date">date</string>
+    <string name="monday">Mo</string>
+    <string name="Tuesday">Tu</string>
+    <string name="Wednesday">We</string>
+    <string name="Thursday">Th</string>
+    <string name="Friday">Fr</string>
+    <string name="Saturday">Sa</string>
+    <string name="Sunday">Su</string>
+    <string name="key_one" translatable="false">1</string>
+    <string name="key_two" translatable="false">2</string>
+    <string name="key_three" translatable="false">3</string>
+    <string name="key_four" translatable="false">4</string>
+    <string name="key_five" translatable="false">5</string>
+    <string name="key_six" translatable="false">6</string>
+    <string name="key_seven" translatable="false">7</string>
+    <string name="key_eight" translatable="false">8</string>
+    <string name="key_nine" translatable="false">9</string>
+    <string name="key_zero" translatable="false">0</string>
+    <string name="frontListToolbar">Heading. Back button on the left</string>
+    <string name="save">save</string>
+    <!-- ringtone_picker fragment -->
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <!-- app menu -->
+    <string name="delete_all">delete all</string>
+    <string name="settings">settings</string>
+    <string name="about_app">about app</string>
+</resources>
