@@ -247,7 +247,7 @@ class ListFragment : Fragment() {
                         resources.getString(R.string.hours),
                         resources.getString(R.string.min)
                     ),
-                    Toast.LENGTH_SHORT
+                    Toast.LENGTH_LONG
                 ).show()
             }
         }
