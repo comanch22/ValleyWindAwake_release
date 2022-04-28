@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.comanch.valley_wind_awake.DefaultPreference
+import com.comanch.valley_wind_awake.NavigationBetweenFragments
 import com.comanch.valley_wind_awake.stringKeys.IntentKeys
 import com.comanch.valley_wind_awake.stringKeys.PreferenceKeys
 import com.comanch.valley_wind_awake.R
@@ -26,6 +27,9 @@ class DetailFragment : Fragment() {
 
     private val args: DetailFragmentArgs by navArgs()
     private val detailViewModel: DetailViewModel by viewModels()
+
+    @Inject
+    lateinit var navigation: NavigationBetweenFragments
 
     @Inject
     lateinit var preferences: DefaultPreference
@@ -64,7 +68,9 @@ class DetailFragment : Fragment() {
             content.getContentIfNotHandled()?.let {
                 stopPlayRingtone()
                 activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-                activity?.finishAndRemoveTask()
+                navigation.navigateToDestination(
+                    this, DetailFragmentDirections.actionDetailFragmentToListFragment()
+                )
             }
         }
 
@@ -87,7 +93,9 @@ class DetailFragment : Fragment() {
         detailViewModel.stopPlay.observe(viewLifecycleOwner) { item ->
             item?.let {
                 activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-                activity?.finishAndRemoveTask()
+                navigation.navigateToDestination(
+                    this, DetailFragmentDirections.actionDetailFragmentToListFragment()
+                )
             }
         }
 
