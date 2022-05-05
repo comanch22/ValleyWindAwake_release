@@ -9,13 +9,19 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.media.AudioAttributes
-import android.media.AudioFocusRequest
 import android.media.AudioManager
+import android.media.RingtoneManager
 import android.media.AudioManager.OnAudioFocusChangeListener
-import android.media.MediaPlayer
 import android.media.MediaPlayer.*
+import android.media.MediaPlayer
+import android.media.AudioFocusRequest
 import android.net.Uri
-import android.os.*
+import android.os.Vibrator
+import android.os.Binder
+import android.os.VibrationEffect
+import android.os.IBinder
+import android.os.VibratorManager
+import android.os.Build
 import android.provider.MediaStore
 import android.text.Spannable
 import android.text.SpannableString
@@ -31,7 +37,8 @@ import com.comanch.valley_wind_awake.stringKeys.PreferenceKeys
 import com.comanch.valley_wind_awake.R
 import com.comanch.valley_wind_awake.broadcastreceiver.AlarmReceiver
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
+import java.util.Timer
+import java.util.TimerTask
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -68,6 +75,7 @@ class RingtoneService : Service(),
         when (intent.action) {
 
             IntentKeys.playAction -> {
+
                 if (!isStarted) {
                     isStarted = true
                     previousTimeId =
@@ -106,12 +114,15 @@ class RingtoneService : Service(),
             previousRingtoneUri
         )
 
-        if (previousRingtoneUri.isNotEmpty()) {
-            setUri(previousRingtoneUri)
-            startPlay()
-            if (preferences.getBoolean(PreferenceKeys.isVibrate)) {
-                startVibrate()
-            }
+        if (previousRingtoneUri.isEmpty()) {
+            previousRingtoneUri =
+                RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM).toString()
+        }
+
+        setUri(previousRingtoneUri)
+        startPlay()
+        if (preferences.getBoolean(PreferenceKeys.isVibrate)) {
+            startVibrate()
         }
         setTimer(context)
 
@@ -122,7 +133,10 @@ class RingtoneService : Service(),
         clearTimer()
         timer = Timer()
         timerTask = MTimerTask(context, previousTimeId)
-        timer?.schedule(timerTask, preferences.getString(PreferenceKeys.signalDuration).toLong() * 60000)
+        timer?.schedule(
+            timerTask,
+            preferences.getString(PreferenceKeys.signalDuration).toLong() * 60000
+        )
     }
 
     private fun sendOffIntent(context: Context, timeId: String) {
@@ -228,13 +242,6 @@ class RingtoneService : Service(),
         return false
     }
 
-/*    override fun onCompletion(p0: MediaPlayer?) {
-
-        Log.e("fgbnfghfghf", "onCompletion")
-        stopPlay()
-        stopSelf()
-    }*/
-
     override fun onDestroy() {
 
         stopPlay()
@@ -338,6 +345,7 @@ class RingtoneService : Service(),
     }
 
     private fun initMediaPlayer() {
+
         mMediaPlayer = MediaPlayer().apply {
             setAudioAttributes(
                 AudioAttributes.Builder()
@@ -420,7 +428,7 @@ class RingtoneService : Service(),
         intent.putExtra(IntentKeys.timeId, timeId)
         intent.putExtra(IntentKeys.ringtoneUri, ringtoneUri)
         intent.putExtra(IntentKeys.Alarm_R, true)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION)
 
         val pendingIntent =
@@ -457,7 +465,7 @@ class RingtoneService : Service(),
             .setContentIntent(pendingIntent)
             .setFullScreenIntent(pendingIntent, true)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-            .setAutoCancel(true)
+            .setOngoing(true)
 
         return notification.build()
     }
@@ -519,10 +527,6 @@ class RingtoneService : Service(),
 
     fun getPausePosition(): Int? {
         return mMediaPlayer?.currentPosition
-    }
-
-    fun getVolume(): Int? {
-        return audioManager?.getStreamVolume(AudioManager.STREAM_ALARM)
     }
 
     fun isPlaying(): Boolean {

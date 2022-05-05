@@ -3,10 +3,8 @@ package com.comanch.valley_wind_awake.keyboardFragment
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Typeface
-import android.media.RingtoneManager
 import android.os.Bundle
 import android.text.format.DateFormat
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -193,10 +191,6 @@ class KeyboardFragment : Fragment() {
 
         keyboardViewModel.newAlarm.observe(viewLifecycleOwner) { content ->
             content.getContentIfNotHandled()?.let {
-                if (it.ringtoneUri.isEmpty()) {
-                    it.ringtoneUri =
-                        RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM).toString()
-                }
                 lifecycleScope.launch {
                     context?.applicationContext.let { appContext ->
                         if (appContext != null) {
@@ -232,7 +226,6 @@ class KeyboardFragment : Fragment() {
         keyboardViewModel.timeToast.observe(viewLifecycleOwner) { timeData ->
 
             timeData.getContentIfNotHandled()?.let {
-                Log.e("fdgdfgbgdg", "222 id = ${it.timeId}")
                 Toast.makeText(
                     context,
                     DateDifference().getResultString(

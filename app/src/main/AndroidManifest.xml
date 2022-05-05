@@ -19,13 +19,21 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round">
-        <activity android:name="com.comanch.valley_wind_awake.MainActivity"
+        <activity android:name="com.comanch.valley_wind_awake.StartActivity"
             android:theme="@style/LaunchTheme"
-            android:launchMode="singleTop"
             android:exported="true"
-            android:turnScreenOn="true"
             android:showWhenLocked="true"
             android:showOnLockScreen="true"
+            tools:targetApi="o_mr1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.comanch.valley_wind_awake.MainActivity"
+            android:theme="@style/LaunchTheme"
+            android:launchMode="standard"
+            android:exported="true"
             tools:targetApi="o_mr1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

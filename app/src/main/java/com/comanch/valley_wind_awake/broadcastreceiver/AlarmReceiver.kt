@@ -11,10 +11,7 @@ import com.comanch.valley_wind_awake.alarmManagement.AlarmTypeOperation
 import com.comanch.valley_wind_awake.alarmManagement.RingtoneService
 import com.comanch.valley_wind_awake.dataBase.TimeDataDao
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -32,12 +29,12 @@ class AlarmReceiver : BroadcastReceiver() {
             when (intent.action) {
 
                 "android.intent.action.BOOT_COMPLETED" -> {
-                    restartAlarms(context?.applicationContext)
+                    restartAlarms(context)
                 }
                 IntentKeys.SetAlarm -> {
 
                     startRingtoneService(
-                        context?.applicationContext,
+                        context,
                         intent.getLongExtra(IntentKeys.timeId, -1),
                         intent.getStringExtra(IntentKeys.timeStr) ?: "0000",
                         intent.getStringExtra(IntentKeys.ringtoneUri) ?: ""
@@ -46,7 +43,7 @@ class AlarmReceiver : BroadcastReceiver() {
                 IntentKeys.offAlarm -> {
 
                     intent.getStringExtra(IntentKeys.timeId)?.let { offAlarm(context, it) }
-                    if (intent.getBooleanExtra("notification", false)){
+                    if (intent.getBooleanExtra("notification", false)) {
                         if (context != null) {
                             NotificationManagerCompat.from(context).cancel(17131415)
                         }
@@ -63,7 +60,10 @@ class AlarmReceiver : BroadcastReceiver() {
                 }
                 IntentKeys.pauseAlarm -> {
 
-                    pauseAlarmFromNotification(context, intent.getStringExtra(IntentKeys.timeId) ?: "")
+                    pauseAlarmFromNotification(
+                        context,
+                        intent.getStringExtra(IntentKeys.timeId) ?: ""
+                    )
                 }
             }
         }
@@ -71,7 +71,7 @@ class AlarmReceiver : BroadcastReceiver() {
 
     private fun restartAlarms(context: Context?) {
 
-        context?.applicationContext?.let {
+        context.let {
             val mCoroutineScope = CoroutineScope(Job() + Dispatchers.IO)
             mCoroutineScope.launch {
                 alarmControl.restartAlarm()
@@ -82,7 +82,7 @@ class AlarmReceiver : BroadcastReceiver() {
     private fun pauseAlarmFromNotification(context: Context?, timeId: String) {
 
         if (timeId.isNotEmpty() && timeId.toLongOrNull() != null) {
-            context?.applicationContext?.let {
+            context.let {
                 val mCoroutineScope = CoroutineScope(Job() + Dispatchers.IO)
                 mCoroutineScope.launch {
                     val item = database.get(timeId.toLong()) ?: return@launch
@@ -101,7 +101,7 @@ class AlarmReceiver : BroadcastReceiver() {
 
         if (timeId.isNotEmpty() && timeId.toLongOrNull() != null) {
             stopRingtoneService(context)
-            context?.applicationContext?.let {
+            context.let {
                 val mCoroutineScope = CoroutineScope(Job() + Dispatchers.IO)
                 mCoroutineScope.launch {
                     val item = database.get(timeId.toLong()) ?: return@launch
@@ -117,7 +117,7 @@ class AlarmReceiver : BroadcastReceiver() {
 
     private fun offDuplicateSignal(context: Context?, timeId: String) {
         if (timeId.isNotEmpty() && timeId.toLongOrNull() != null) {
-            context?.applicationContext?.let {
+            context.let {
                 val mCoroutineScope = CoroutineScope(Job() + Dispatchers.IO)
                 mCoroutineScope.launch {
                     val item = database.get(timeId.toLong()) ?: return@launch
@@ -150,7 +150,7 @@ class AlarmReceiver : BroadcastReceiver() {
 
     private fun stopRingtoneService(context: Context?) {
 
-        val intent = Intent(context?.applicationContext, RingtoneService::class.java).apply {
+        val intent = Intent(context, RingtoneService::class.java).apply {
             action = IntentKeys.stopAction
         }
         context?.startService(intent)

@@ -1,11 +1,12 @@
 package com.comanch.valley_wind_awake
 
-import android.app.KeyguardManager
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
-import android.os.*
+import android.content.Intent
+import android.os.Build
+import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
@@ -24,6 +25,14 @@ class MainActivity : AppCompatActivity() {
     private val notificationId = 17131415
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        intent?.extras?.let {
+            if (it.containsKey(IntentKeys.Alarm_R)) {
+            val intent = Intent(this, StartActivity::class.java)
+            startActivity(intent)
+            }
+        }
 
         val defaultPreference = PreferenceManager.getDefaultSharedPreferences(this)
         when (defaultPreference.getString(AppStyleKey.appStyle, AppStyleKey.blue)) {
@@ -38,19 +47,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        super.onCreate(savedInstanceState)
-
         if (Build.VERSION.SDK_INT >= 27) {
-            (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager).also {
-                it.requestDismissKeyguard(this, null)
-            }
+           setShowWhenLocked(true)
+           setTurnScreenOn(true)
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                    or WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON)
         } else {
-            window.addFlags(
-                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-                        or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
-                        or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
-                        or WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
-            )
+            window.addFlags(WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
+                    or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+                    or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                    or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+                    or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED)
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -58,33 +65,42 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(R.layout.activity_main)
-    }
 
-
-    override fun onStart() {
-
-        super.onStart()
         intent?.extras?.let {
             if (it.containsKey(IntentKeys.Alarm_R)) {
+
                 intent.removeExtra(IntentKeys.Alarm_R)
+
+                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                        or WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON)
+
                 val itemId = intent.extras?.getString(IntentKeys.timeId) ?: "-1"
                 findNavController(R.id.nav_host_fragment).navigate(
                     ListFragmentDirections.actionListFragmentToDetailFragment(
                         itemId.toLong()
                     )
                 )
+            }else{
+                if (Build.VERSION.SDK_INT >= 27) {
+                    setShowWhenLocked(false)
+                    setTurnScreenOn(false)
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                            or WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON)
+                } else {
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
+                            or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+                            or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                            or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+                            or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED)
+                }
             }
         }
-    }
 
-    override fun onPause() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationManagerCompat.from(this).cancel(notificationId)
+        if (intent?.extras == null || intent?.extras?.isEmpty == true){
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                    or WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON)
         }
-        super.onPause()
     }
-
 
     private fun createNotificationChannel(context: Context) {
 

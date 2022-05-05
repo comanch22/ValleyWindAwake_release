@@ -431,13 +431,6 @@ class AlarmControl @Inject constructor(
         }
     }
 
-    private fun clearDelayTime(item: TimeData) {
-
-        if (item.delayTime > 0L) {
-                item.delayTime = 0L
-        }
-    }
-
     private fun createPendingIntent(
         requestCode: Int,
         item: TimeData? = null

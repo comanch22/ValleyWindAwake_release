@@ -30,17 +30,14 @@ class DetailViewModel @Inject constructor(val database: TimeDataDao) : ViewModel
     val stopPlay:LiveData<LiveDataEvent<Int?>>
         get() = _stopPlay
 
-
     fun offSignal() {
 
         _offAlarm.value = LiveDataEvent(1)
-        _navigateToList.value = LiveDataEvent(1)
     }
 
     fun delaySignal() {
 
         _setPause.value = LiveDataEvent(1)
-        _navigateToList.value = LiveDataEvent(1)
     }
 
     fun startDelay(mDelay: Long) {
